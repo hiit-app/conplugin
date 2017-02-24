@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+	<link rel="stylesheet" href="jquerymobile/jquery-tema.css">
+	
+	
+<!--<script src="//code.jquery.com/jquery-1.12.4.js"></script>-->
+	<script src="jquerymobile/jquery-javascript-tema.js"></script>
+	
+	
+	
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<script src="storage.js"></script>
+	 <script src="jquery-mobile.js"></script>
+	 <script src="jquery.js"></script>
+	<script src="jquerymobile/jquery.mobile.custom.js"></script>
+	<link rel="stylesheet" href="jquerymobile/jquery.mobile.custom.structure.css">
+	
+	<link rel="stylesheet" href="jquerymobile/jquery.mobile.custom.structure.css">
+	<link rel="stylesheet" href="adsf.min.css">
+	<link rel="stylesheet" href="jquerymobile/jquery.mobile.icons-1.4.5.min.css">
+	<link rel="stylesheet" href="jquerymobile/jquery.mobile.inline-png-1.4.5.min.css">
+	
+	<link rel="stylesheet" href="jquerymobile/jquery.mobile.inline-svg-1.4.5.min.css">
+	
+	<link rel="stylesheet" href="jquerymobile/jquery.mobile.structure-1.4.5.min.css">
+	
+	
+	<link rel="stylesheet" href="jquerymobile/jquery.mobile.theme-1.4.5.min.css">
+	<link rel="stylesheet" href="jquerymobile/jquery.mobile-1.4.5.min.css">
+	
+	
+	
+	
+	
+	
+	
+	
+	<link rel="stylesheet" href="jquerymobile/jquery.mobile.external-png-1.4.5.min.css">
+	<link rel="stylesheet" href="jquerymobile/jquery.mobile.custom.theme.min.css">
+<script src="jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="jquery-mobile.css">
+<link rel="stylesheet" href="jquery-ui.min.css">
+<link rel="stylesheet" href="jquery-ui.structure.min.css">
+<link rel="stylesheet" href="jquery-ui.theme.min.css">
+<script src="muestra_datos_websql.js"></script>
+
+	
+	
+	
+	
+	
+	<script src="phonegap.js"></script>
+</head>
+<body>	
+
+<div data-role="page" id="testpage">
+
+	<div data-role="header">
+		<h1 id="h1" >Entreno del Día</h1>
+		<a href="index.html" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left ui-btn-icon-notext">Back</a>
+
+
+		<a href="#" id="fechas" class="ui-btn ui-corner-all ui-shadow ui-btn-icon-left ui-icon-calendar">Fechas</a>
+		
+		<input type="hidden" data-role="date" id="datepicker">
+		<div ></div>
+ 
+<script>
+$(document).ready(function(){
+	
+
+
+
+
+	todo_bd_muestra(fecha)
+var pickerOpts = {
+ dateFormat: "dd/m/yy"
+ };
+$( "#datepicker" ).datepicker(pickerOpts);//crea datepicker
+
+
+$("#peo").hide(); //esconder boton
+
+
+$("#fechas").click(function(){
+	navigator.notification.alert(
+		'hola',
+		null,
+		'game over',
+		'done');
+	playBeep();
+	vibrate();
+	
+	
+	function playBeep(){ navigator.notification.beep(1); }
+	function vibrate(){ navigator.notification.vibrate(2000); }
+	
+$("#peo").fadeIn(3000);//se aparece el boton
+	$( "#datepicker" ).datepicker("show");//se muestra el datepicker
+
+	
+
+
+})
+
+
+
+$("#peo").click(function(){//cambia la tabla segun la fecha seleccionada
+	
+	
+	var hola=$("#datepicker").val();
+
+	todo_bd_muestra(hola);
+	var contenedor= document.getElementById("contenedor");
+	contenedor.innerHTML=""
+	console.log(hola)
+	var titulo= document.getElementById("h1");
+	titulo.innerHTML=hola;
+	$(this).hide(3000);
+})
+
+
+
+
+})//se acaba la funcion de document.ready
+
+
+</script>
+
+		<!--<div data-role="navbar">
+			<ul>
+				<li><a href="#" class="ui-btn-active ui-state-persist">Menu item 1</a></li>
+				<li><a href="#">Menu item 2</a></li>
+				<li><a href="#">Menu item 3</a></li>
+			</ul>
+		</div>-->
+	</div><!-- /header -->
+<div id="peo">
+<input type="button" value="Ir Fecha" id="peo" style="">
+</div>
+  <table data-role="table" id="table-column-toggle" data-mode="" class="ui-responsive table-stroke">
+         <thead>
+           <tr class="ui-bar-d">
+            
+             <th data-priority="1">Ejercicio</th>
+             <th data-priority="1">Series</th>
+             <th data-priority="1"><abbr title="Kilos de entreno">KG Entreno</abbr></th>
+             <th data-priority="1">KG Activacion</th>
+           </tr>
+         </thead>
+         <tbody id="contenedor">
+          
+           
+          
+         </tbody>
+       </table>
+<!--<input type="text" id="table">-->
+</div>
+</div>
+
+</body>
+</html>
